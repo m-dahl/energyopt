@@ -465,7 +465,7 @@ void initializeModel(Model& model,PostProcess& postProcess, DataFactory& dataFac
 			for (int i = 0; i < R[r].getPathLength()-1; i++) //
 			{
 				//	obj.plus(0);			
-				
+		/* /		
 				obj.plus(a[r][j][i+1]).multiply(a[r][j][i+1]).
 					multiply(v[r][j][i+1]).multiply(v[r][j][i+1]).
 					multiply(t[r][i+1]).
@@ -479,7 +479,7 @@ void initializeModel(Model& model,PostProcess& postProcess, DataFactory& dataFac
 					multiply(1 / pow(seenV, 2)).
 					multiply(1 / pow(seenA, 2)).
 					multiply(R[r].getWeightsOnJoint(0)[j]); 
-
+		*/
 	//  Jerk terms
 
 
@@ -500,11 +500,11 @@ void initializeModel(Model& model,PostProcess& postProcess, DataFactory& dataFac
 
 
 		//acceleration		
-			/*	obj.plus(a[r][j][i]).multiply(a[r][j][i]).
+				obj.plus(a[r][j][i]).multiply(a[r][j][i]).
 					multiply(1 / pow(seenA, 2)).
 					multiply(R[r].getWeightsOnJoint(0)[j]).
 					multiply(R[r].getSamplingFrequency());
-					*/
+					
 
 			// Acceleration^2
 			/*for (int r = 0; r < nbRobots; r++)
@@ -588,14 +588,16 @@ void initializeModel(Model& model,PostProcess& postProcess, DataFactory& dataFac
 		}
 
 		//Add v0 and a0 to starting poitns.
-		for (int j = 0; j < R[r].getNbJoints(); j++)
-		{
-			for (int i = 0; i < R[r].getPathLength() ; i++) 
-			{
-				model.addStartingPoint(v[r][j][i], v0OnJoints[j][i]);
-				model.addStartingPoint(a[r][j][i], a0OnJoints[j][i]);	
-			}	
-		}
+		
+		//for (int j = 0; j < R[r].getNbJoints(); j++)
+		//{
+		//	for (int i = 0; i < R[r].getPathLength() ; i++) 
+		//	{
+		//		model.addStartingPoint(v[r][j][i], v0OnJoints[j][i]);
+		//		model.addStartingPoint(a[r][j][i], a0OnJoints[j][i]);	
+		//	}	
+		//}
+		
 	}
 
 	
