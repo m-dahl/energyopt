@@ -4,6 +4,7 @@
 RobotData::RobotData()
 {
 	samplingFrequency_ = -1;
+	samplingFrequencyTarget_ = -1;
 	makespan_ = -1;
 	timeToleranceMax_ = -1;
 	timeToleranceMin_ = -1;
@@ -21,6 +22,7 @@ RobotData::RobotData(RobotRawData& data)
 	
 	starting_points_   = data.starting_points_;
 	samplingFrequency_ = data.samplingFrequency_;
+	samplingFrequencyTarget_ = data.samplingFrequencyTarget_;
 	makespan_          = data.makespan_;
 	path_              = data.path_;
 	
@@ -165,6 +167,11 @@ double RobotData::getAngle(int sampleId, int jointId) const
 double RobotData::getSamplingFrequency() const
 {
 	return samplingFrequency_;
+}
+
+double RobotData::getSamplingFrequencyTarget() const
+{
+	return samplingFrequencyTarget_;
 }
 
 
@@ -346,4 +353,11 @@ void RobotData::caclMaxVelAccel_()
 		
 	}
 
+/*for (int j = 0; j < this->getNbJoints(); j++)
+	{
+		velocityLimits_[j] = maxSeenVeocity_[j] * 1.4;
+		accelerationLimits_[j] = maxSeenAcceleration_[j] * 1.4;
+		jerkLimits_[j] = maxSeenJerk_[j] * 1.4;
+	}
+*/
 }

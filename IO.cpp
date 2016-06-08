@@ -71,6 +71,7 @@ void DataFactory::parseRobotData()
 		rawData.epsilonT_ = document_["robots"][r]["epsilonT"].GetDouble();
 		rawData.makespan_ = document_["robots"][r]["makespan"].GetDouble();
 		rawData.samplingFrequency_ = document_["robots"][r]["samplingRate"].GetDouble();
+		rawData.samplingFrequencyTarget_ = document_["robots"][r]["targetSamplingRate"].GetDouble();
 		rawData.costScaleFactor_ = document_["robots"][r]["costScaleFactor"].GetDouble();
 		rawData.timeToleranceMax_ = document_["robots"][r]["timeToleranceMax"].GetDouble();
 		rawData.timeToleranceMin_ = document_["robots"][r]["timeToleranceMin"].GetDouble();
@@ -228,7 +229,7 @@ PreservedZoneRaw& DataFactory::getPreservedZone(int zoneIndex)
 ResultFactory::ResultFactory(PostProcess& p)
 {
 	trajectories_   = p.getTrajectories();
-	optimizedTimes_ = p.getOptimalTimes();;
+	optimizedTimes_ = p.getOptimalTimes();
 }
 
 
@@ -261,7 +262,7 @@ void ResultFactory::makeString()
 		    // The value
 		    for (int i = 0; i < nbSamples; i++)
 		    {
-				sprintf(c, "%f", optimizedTimes_[r][i] ); 
+				sprintf_s(c, "%f", optimizedTimes_[r][i] ); 
 				jsonString_.append(c);
 
 				if (i < nbSamples - 1)
@@ -287,7 +288,7 @@ void ResultFactory::makeString()
 
 				for (int j = 0; j < nbJoints; j++)
 				{
-					sprintf(c, "%f", trajectories_[r][j][i]);
+					sprintf_s(c, "%f", trajectories_[r][j][i]);
 					jsonString_.append(c);
 
 					if (j < nbJoints - 1)

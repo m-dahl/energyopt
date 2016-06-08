@@ -53,7 +53,7 @@ void PostProcess::interpolate()
 		while (currentTime < finalTime)
 		{
 			standardTimeOneRobot.push_back(currentTime);
-			currentTime += robotDataVec_->operator[](r).getSamplingFrequency();
+			currentTime += robotDataVec_->operator[](r).getSamplingFrequencyTarget(); //FRI
 		}
 		standardTimeAllRobots.push_back(standardTimeOneRobot);
 	}
@@ -154,10 +154,10 @@ void PostProcess::writeAsci()
 	{
 		std::ofstream file;
 		char name[128];
-		sprintf(name, "sol_r_%d.txt", r);
+		sprintf_s(name, "sol_r_%d.txt", r);
 		file.open(name);
 
-		for (int i = 0; i < robotDataVec_->operator[](r).getPathLength(); i++)
+		for (int i = 0; i < interpolatedAnglesAllRobots_[r][0].size(); i++)
 		{
 			for (int j = 0; j < robotDataVec_->operator[](r).getNbJoints(); j++)
 			{

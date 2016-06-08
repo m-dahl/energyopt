@@ -34,6 +34,7 @@ struct RobotRawData
 	vector<double> starting_points_;
 
 	double samplingFrequency_;
+	double samplingFrequencyTarget_;
 	double costScaleFactor_;
 
 	double makespan_;
@@ -67,6 +68,7 @@ class RobotData
 	  double getAngle(int sampleId, int jointId) const;
 
 	  double getSamplingFrequency() const;
+	  double getSamplingFrequencyTarget() const;
 	  double getScaleFactor() const;
 	  double getTimeToleranceMax() const;
 	  double getTimeToleranceMin() const;
@@ -96,6 +98,7 @@ class RobotData
 	  vector<double> maxSeenJerk_;
 	  
 	  double samplingFrequency_;
+	  double samplingFrequencyTarget_;
 	  double costScaleFactor_;
 	  
 	  double makespan_;
