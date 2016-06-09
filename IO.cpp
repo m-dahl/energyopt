@@ -262,7 +262,7 @@ void ResultFactory::makeString()
 		    // The value
 		    for (int i = 0; i < nbSamples; i++)
 		    {
-				sprintf_s(c, "%f", optimizedTimes_[r][i] ); 
+				sprintf(c, "%f", optimizedTimes_[r][i] ); 
 				jsonString_.append(c);
 
 				if (i < nbSamples - 1)
@@ -288,7 +288,7 @@ void ResultFactory::makeString()
 
 				for (int j = 0; j < nbJoints; j++)
 				{
-					sprintf_s(c, "%f", trajectories_[r][j][i]);
+					sprintf(c, "%f", trajectories_[r][j][i]);
 					jsonString_.append(c);
 
 					if (j < nbJoints - 1)

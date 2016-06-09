@@ -93,7 +93,7 @@ public:
 			}
 
 			// Create the destination (Topic or Queue)
-			destination = session->createQueue("MODALA.RESPONSES");
+			destination = session->createTopic("MODALA.RESPONSES");
 
 			// Create a MessageProducer from the Session to the Topic or Queue
 			mproducer = session->createProducer(destination);
@@ -205,7 +205,7 @@ public:
 				session = connection->createSession(Session::AUTO_ACKNOWLEDGE);
 			}
 
-			destination = session->createQueue("MODALA.QUERIES");
+			destination = session->createTopic("MODALA.QUERIES");
 
 			// Create a MessageConsumer from the Session to the Topic or Queue
 			mconsumer = session->createConsumer(destination);

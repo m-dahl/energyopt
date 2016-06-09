@@ -154,7 +154,7 @@ void PostProcess::writeAsci()
 	{
 		std::ofstream file;
 		char name[128];
-		sprintf_s(name, "sol_r_%d.txt", r);
+		sprintf(name, "sol_r_%d.txt", r);
 		file.open(name);
 
 		for (int i = 0; i < interpolatedAnglesAllRobots_[r][0].size(); i++)
