@@ -14,7 +14,8 @@ Started 10 Sep 2015 by Sarmad Riazi
 
 using std::endl;
 
-void initializeModel(Model& model,PostProcess& postProcess, DataFactory& dataFactory)
+void initializeModel(Model& model,vector<RobotData>& R,
+                     PostProcess& postProcess, DataFactory& dataFactory)
 {
 	
 	//########################################
@@ -22,7 +23,7 @@ void initializeModel(Model& model,PostProcess& postProcess, DataFactory& dataFac
 	//########################################
 
 	int nbRobots = dataFactory.getNbRobots();
-	vector<RobotData> R;
+	
 	for (int i = 0; i < nbRobots; i++)
 	{
 		R.push_back( RobotData(dataFactory.getRobotData(i)) );

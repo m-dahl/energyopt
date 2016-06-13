@@ -32,9 +32,8 @@ using namespace cms;
 using namespace std;
 using std::pow;
 
-void initializeModel(Model& model, PostProcess& postProcess, DataFactory& dataFactory);
-
-
+void initializeModel(Model& model, vector<RobotData>& R,
+                     PostProcess& postProcess, DataFactory& dataFactory);
 
 // ModalaAMQ.cpp : Defines the entry point for the console application.
 //void modalar(string)
@@ -248,10 +247,10 @@ public:
 
 				Model model;
 				PostProcess postProcess;
-
+        vector<RobotData> R;
 				prod->send("progress");
-
-				initializeModel(model, postProcess, dataFactory);
+        
+				initializeModel(model, R, postProcess, dataFactory);
 
 				postProcess.writeAsci();
 
@@ -350,7 +349,6 @@ int main(int argc, char** argv)
 
 	return 0;
 }
-
 
 
 
