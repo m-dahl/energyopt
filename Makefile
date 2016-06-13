@@ -3,9 +3,9 @@ SOURCES=ADOL-C_NLP.cpp ADOL-C_sparseNLP.cpp Constraints.cpp Interface.cpp IO.cpp
 LIBRARY=nope
 
 INCPATHS=/usr/local/include/activemq-cpp-3.9.2 /usr/include/apr-1.0 /usr/include/coin/
-LIBPATHS=/usr/local/lib 
+LIBPATHS=/usr/local/lib
 LDFLAGS=-lactivemq-cpp -lipopt -ladolc
-CFLAGS=-c -std=c++11 -DHAVE_STDDEF_H -Wno-deprecated-declarations
+CFLAGS=-c -O2 -std=c++11 -DHAVE_STDDEF_H -Wno-deprecated-declarations
 CC=g++
 
 # ------------ MAGIC BEGINS HERE -------------
